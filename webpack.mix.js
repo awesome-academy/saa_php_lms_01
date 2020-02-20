@@ -13,3 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.styles(['resources/template/css/style.css','resources/template/css/user.css' ], 'public/css/style.css');
+
+mix.styles('resources/template/css/sb-admin-2.min.css', 'public/css/admin.css');
+mix.copyDirectory('resources/template/img', 'public/img');
