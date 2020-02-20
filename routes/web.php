@@ -11,6 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::group([
+    'namespace' => 'Admin'
+],function (){
+    Route::get('/admin/dashboard', 'DashboardController@index');
+    Route::get('/admin/user', 'UserController@index');
+});
+
+
+Route::group([
+    'namespace' => 'User'
+],function (){
+    Route::get('/', 'HomeController@index');
+    Route::get('/detail', 'HomeController@show');
+    Route::get('/profile', 'HomeController@profile');
 });

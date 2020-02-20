@@ -1,0 +1,25 @@
+.menu-home{
+    flex-direction: row;
+}
+.books-gird ul li{
+    margin: 0!important;
+}
+.profile{
+    padding: 20px;
+}
+.profile .user-info{
+    font-size: 20px;
+}
+    .profile .user-info .user-diary ul {
+        list-style: none;
+        /* float: left; */
+        /* margin: 0; */
+        padding: 0;
+    }
+        .profile .user-info .user-diary ul li {
+            float: left;
+            color: #909090;
+            font-weight: 600;
+            padding: 0 20px;
+
+        }
