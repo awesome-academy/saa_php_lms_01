@@ -2,14 +2,13 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Role;
 
-class User extends Authenticatable
+class Admin extends Model
 {
     use Notifiable;
-
+    protected $guard = 'admin';
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +35,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
 }
