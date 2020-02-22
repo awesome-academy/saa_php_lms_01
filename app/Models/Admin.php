@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Role;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-class Admin extends Model
+use Illuminate\Notifications\Notifiable;
+class Admin extends Authenticatable
 {
     use Notifiable;
     protected $guard = 'admin';
