@@ -11,23 +11,27 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-Route::group([
-    'namespace' => 'Admin'
-],function (){
-    Route::get('/admin/dashboard', 'DashboardController@index');
-    Route::get('/admin/user', 'UserController@index');
-});
-
 
 Route::group([
     'namespace' => 'User'
 ],function (){
+    Route::get('/login', 'LoginController@showLoginForm');
+    // Route::post('/login', 'LoginController');
     Route::get('/', 'HomeController@index');
     Route::get('/detail', 'HomeController@show');
     Route::get('/profile', 'HomeController@profile');
+    Route::post('/login', 'LoginController@login')->name('user/login');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')->group(function () {
+    Route::get('dashboard', 'Admin\DashboardController@index')->name('admin/dashboard');
+    // Route::get('register', 'DashboardController@create')->name('admin.register');
+    // Route::post('register', 'DashboardController@store')->name('admin.register.store');
+    Route::get('login', 'Admin\Auth\LoginController@showLoginForm')->name('admin\auth\login');
+    Route::post('login', 'Admin\Auth\LoginController@loginAdmin')->name('admin\auth\loginAdmin');
+    Route::post('logout', 'Admin\Auth\LoginController@logout')->name('admin\auth\logout');
+  });
