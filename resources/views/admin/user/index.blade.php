@@ -1,49 +1,74 @@
 @extends('admin.layout.admin')
-@section('title', 'Dashboard')
+@section('title', 'Quản lý người dùng')
 
 @section('content')
-<table class="table">
-  <thead class="thead-dark">
+
+<div class="action-bar">
+    <form method="GET" action="{{ route('admin\user\index') }}">
+        <div class="form-group search-form">
+            <div class="cover-input-search">
+                <input class="input-search" type="text" name="keyword" placeholder="{{ __('Type name') }}"/>
+            </div>
+            <button class="btn-search btn-primary"> {{ __('Search') }}</button>
+        </div>
+    </form>
+    <button class="btn btn-danger btn-add"><a href="{{ route('admin\user\create') }}">{{ __('Add') }}</a></button>
+</div>
+
+
+
+<table class="table table-striped">
+  <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-      <th scope="col">Action</th>
+      <th scope="col">{{ __('Order') }}</th>
+      <th scope="col">{{ __('Name') }}</th>
+      <th scope="col">{{ __('Email') }}</th>
+      <th scope="col">{{ __('Role') }}</th>
+      <th scope="col">{{ __('Action') }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-        <i class="far fa-edit"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-        <i class="far fa-edit"></i>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>
-        <i class="fas fa-trash-alt"></i>
-        <i class="far fa-edit"></i>
-      </td>
-    </tr>
+    <!-- <tr>
+        <td></td>
+        <td>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr> -->
+
+    @foreach($users as $key => $user)
+        <tr key="{{$user->id}}">
+            <td>{{$key+1}}</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->role->name}}</td>
+            <td>
+                <!-- <a  style="margin-right:8px" ><i class="fas fa-trash-alt"></i></a>
+                <a><i class="far fa-edit"></i></a> -->
+                <div style="display:flex">
+                    <form method="get" action="{{ action('Admin\UserController@edit', $user->id) }}" class="float-left mr-2">
+                        <div>
+                            <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
+                        </div>
+                    </form>
+                    <form method="post" action="{{ action('Admin\UserController@delete', $user->id) }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div>
+                            <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
+                        </div>
+                    </form>
+                </div>   
+            </td>
+        </tr>
+    @endforeach
   </tbody>
 </table>
+{!! $users->links() !!}
+@endsection
 
+@section('javascript')
+    <script>
+
+    </script>
 @endsection

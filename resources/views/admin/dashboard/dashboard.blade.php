@@ -2,5 +2,5 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div>Đây là trang {{ Auth::user()->name }} </div>
+    <div>Hello {{ Auth::user()->name }} </div>
 @endsection

@@ -1,0 +1,30 @@
+button.btn.btn-danger a{
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+.btn-add{
+    float: right;
+    margin-bottom: 16px;
+}
+.search-form{
+    display: flex;
+}
+.input-search {
+    border: none;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.cover-input-search {
+    margin-right: 8px;
+    /* border: 1px solid #ccc; */
+    border-radius: 3px;
+}
+button.btn-search.btn-primary {
+    border: none;
+    border-radius: 5px;
+    /* font-size: 13px; */
+}
