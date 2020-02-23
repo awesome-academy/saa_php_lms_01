@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Role;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 class Admin extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +17,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -39,5 +40,27 @@ class Admin extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Get the user's password 
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getPasswordAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    /**
+     * Set the user's password.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
 }
