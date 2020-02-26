@@ -43,5 +43,22 @@
     "Thumbnail":"Thumbnail",
     "Publisher":"Nhà xuất bản",
     "Author":"Tác giả",
-    "Create Book":"Thêm mới sách"
+    "Create Book":"Thêm mới sách",
+    "Welcome":"What are you looking for at the library?",
+    "Search by Keyword":"Tìm kiếm theo từ khóa",
+    "Search the Publisher":"Tìm kiếm theo nhà xuất bản",
+    "All Categories": "Tất cả thể loại",
+    "Subject":"Subject",
+    "About Libraria":"About Libraria",
+    "QUICK LINKS":"QUICK LINKS",
+    "TIMING":"TIMING",
+    "LATEST TWEETS":"LATEST TWEETS",
+    "Library News":"Library News",
+    "History":"History",
+    "About Library":"It is a long established fact that a reader will be distracted by the readable content of a page when looking.",
+    "Logout":"Đăng xuất",
+    "Profile":"Trang cá nhân",
+    "Next":"Sau",
+    "Previous":"Trước",
+    "AboutUs":"It is a long established fact that a reader will be distracted by the readable content of a page when looking."
 }
