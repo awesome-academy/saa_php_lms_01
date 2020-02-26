@@ -15,14 +15,14 @@
 Route::group([
     'namespace' => 'User'
 ],function (){
-    Route::get('/login', 'LoginController@showLoginForm');
-    // Route::post('/login', 'LoginController');
+    // Route::get('/login', 'LoginController@showLoginForm');
+    // Route::post('/login', 'LoginController@login');
     Route::get('/', 'HomeController@index');
     Route::get('/detail', 'HomeController@show');
     Route::get('/profile', 'HomeController@profile');
-    Route::post('/login', 'LoginController@login')->name('user/login');
+    // Route::post('/login', 'LoginController@login')->name('user/login');
 });
-
+Route::post('/user/logout', 'Auth\LoginController@logout')->name('user\logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
