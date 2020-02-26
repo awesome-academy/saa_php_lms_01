@@ -37,5 +37,11 @@
     "Role Manage":"Quản lý Role",
     "Create Role":"Tạo role",
     "Permissions": "Danh sách permission",
-    "Successful":"Thành công"
+    "Successful":"Thành công",
+    "Title":"Tiêu đề",
+    "Description":"Mô tả",
+    "Thumbnail":"Thumbnail",
+    "Publisher":"Nhà xuất bản",
+    "Author":"Tác giả",
+    "Create Book":"Thêm mới sách"
 }

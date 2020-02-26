@@ -35,5 +35,11 @@
     "Role Manage":"Role Manage",
     "Create Role":"Create Role",
     "Permissions": "Permissions",
-    "Successful":"Successful"
+    "Successful":"Successful",
+    "Title":"Title",
+    "Description":"Description",
+    "Thumbnail":"Thumbnail",
+    "Publisher":"Publisher",
+    "Author":"Author",
+    "Create Book":"Create Book"
 }
