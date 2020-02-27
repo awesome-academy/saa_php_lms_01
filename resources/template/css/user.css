@@ -62,3 +62,52 @@ nav.navigation.pagination.text-center {
     height: 376px;
     min-height: 376px;
 }
+
+.row.header-book {
+    margin: 56px 0;
+}
+
+.row.header-book .book-thumbnail{
+    max-height: 300px;
+    object-fit: contain;
+    height: 300px;
+    border-radius: 3px;
+}
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type:none;
+    padding:0;
+    
+    -moz-user-select:none;
+    -webkit-user-select:none;
+  }
+  .rating-stars ul > li.star {
+    display:inline-block;
+    
+  }
+  
+  /* Idle State of the stars */
+  .rating-stars ul > li.star > i.fa {
+    font-size:2.5em; /* Change the size of the stars */
+    color:#ccc; /* Color on idle state */
+  }
+  
+  /* Hover state of the stars */
+  .rating-stars ul > li.star.hover > i.fa {
+    color:#FFCC36;
+  }
+  
+  /* Selected state of the stars */
+  .rating-stars ul > li.star.selected > i.fa {
+    color:#FF912C;
+  }
+  a.category-title{
+      color: #337AB7;
+  }
+  a.category-title {
+    color: #337AB7!important;
+    cursor: pointer;
+  }
+  a.category-title:hover {
+    text-decoration: none;
+  }

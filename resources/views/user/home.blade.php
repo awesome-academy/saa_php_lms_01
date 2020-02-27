@@ -109,7 +109,10 @@
                                                             <p>{{$book->description}}</p>
                                                         </div>
                                                         <footer class="entry-footer">
-                                                            <a class="btn btn-primary" href="books-media-detail-v1.html">Read More</a>
+                                                       
+                                                            <a class="btn btn-primary" href="{{route('user\book\detail',$book->id)}}">Read More</a>
+                                                    
+                                                            
                                                         </footer>
                                                     </div>
                                                 </div>                                       
