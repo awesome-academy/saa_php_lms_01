@@ -18,10 +18,12 @@ Route::group([
     // Route::get('/login', 'LoginController@showLoginForm');
     // Route::post('/login', 'LoginController@login');
     Route::get('/', 'HomeController@index');
-    Route::get('/detail', 'HomeController@show');
+    // Route::get('/detail', 'HomeController@show');
     Route::get('/profile', 'HomeController@profile');
     // Route::post('/login', 'LoginController@login')->name('user/login');
     Route::get('/search','BookController@searchBook')->name('user\book\search');
+    Route::get('book/{id?}/detail','BookController@detail')->name('user\book\detail');
+    Route::post('book/comment','BookController@comment')->name('user\book\comment');
 });
 Route::post('/user/logout', 'Auth\LoginController@logout')->name('user\logout');
 Auth::routes();
