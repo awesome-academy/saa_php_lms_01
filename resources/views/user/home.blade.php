@@ -120,12 +120,7 @@
                                     <nav class="navigation pagination text-center">
                                         <h2 class="screen-reader-text">Posts navigation</h2>
                                         <div class="nav-links">
-                                            <a class="prev page-numbers" href="#."><i class="fa fa-long-arrow-left"></i> {{ __('Previous') }}</a>
-                                            <a class="page-numbers" href="#.">1</a>
-                                            <span class="page-numbers current">2</span>
-                                            <a class="page-numbers" href="#.">3</a>
-                                            <a class="page-numbers" href="#.">4</a>
-                                            <a class="next page-numbers" href="#.">{{ __('Next') }} <i class="fa fa-long-arrow-right"></i></a>
+                                            {!! $books->links() !!}
                                         </div>
                                     </nav>
                                 </div>
@@ -141,14 +136,6 @@
                                                             @foreach($categories as $category)
                                                                 <li><a style="cursor:pointer">{{$category->name}}</a></li>
                                                             @endforeach
-                                                            <!-- <li><a href="#">Love stories <span>(18)</span></a></li>
-                                                            <li><a href="#">Texas <span>(04)</span></a></li>
-                                                            <li><a href="#">Rich people <span>(03)</span></a></li>
-                                                            <li><a href="#">Humorous stories <span>(02)</span></a></li>
-                                                            <li><a href="#">Widows <span>(02)</span></a></li>
-                                                            <li><a href="#">Women <span>(11)</span></a></li>
-                                                            <li><a href="#">Babysitters <span>(25)</span></a></li>
-                                                            <li><a href="#">Law firms <span>(09)</span></a></li> -->
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -159,14 +146,6 @@
                                                             @foreach($authors as $author)
                                                                 <li value={{$author->id}}><a style="cursor:pointer">{{$author->name}}</a></li>
                                                             @endforeach
-                                                            <!-- <li><a href="#">Love stories <span>(18)</span></a></li>
-                                                            <li><a href="#">Texas <span>(04)</span></a></li>
-                                                            <li><a href="#">Rich people <span>(03)</span></a></li>
-                                                            <li><a href="#">Humorous stories <span>(02)</span></a></li>
-                                                            <li><a href="#">Widows <span>(02)</span></a></li>
-                                                            <li><a href="#">Women <span>(11)</span></a></li>
-                                                            <li><a href="#">Babysitters <span>(25)</span></a></li>
-                                                            <li><a href="#">Law firms <span>(09)</span></a></li> -->
                                                         </ul>
                                                     </div>
                                                     <div class="clearfix"></div>

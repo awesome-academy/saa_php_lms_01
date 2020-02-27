@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             // AdminsTableSeeder::class,
             // PermissionsTableSeeder::class
             // PublisherTableSeeder::class
-            AuthorsTableSeeder::class
+            // AuthorsTableSeeder::class
+            CategorySeeder::class
         ]);
     }
 }
