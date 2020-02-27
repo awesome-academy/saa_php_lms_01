@@ -8,7 +8,7 @@ use App\Models\Author;
 class BookAuthor extends Model
 {
     //
-    protected $table = 'book_authors';
+    protected $table = 'author_book';
     public $timestamps = false;
 
     protected $fillable = [

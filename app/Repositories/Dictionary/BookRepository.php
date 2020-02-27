@@ -90,4 +90,22 @@ class BookRepository
             ]) ->paginate(5);
         return $books;
     }
+
+    public function getAllWithInfo(){
+        return $this->model->with('publisher','bookAuthor','bookAuthor.author')->paginate(15);
+    }
+
+    public function searchBook($keywords=null, $author=null, $publisher=null){
+        $keyword = "%{$keywords}%";
+        $auth = "%{$author}%";
+        $books = $this->model->where([
+            ['title', 'LIKE', $keyword], 
+            ['publisher_id', $publisher]
+            ])
+            ->where('bookAuthor.author', function($q) use ($auth){
+                return $q->where('name', 'LIKE', $auth);
+            })->get();
+        // dd($books);
+        return $books;
+    }
 }
