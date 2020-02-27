@@ -21,11 +21,13 @@ Route::group([
     Route::get('/detail', 'HomeController@show');
     Route::get('/profile', 'HomeController@profile');
     // Route::post('/login', 'LoginController@login')->name('user/login');
+    Route::get('/search','BookController@searchBook')->name('user\book\search');
 });
 Route::post('/user/logout', 'Auth\LoginController@logout')->name('user\logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::prefix('admin')->group(function () {
     Route::get('dashboard', 'Admin\DashboardController@index');
@@ -59,3 +61,5 @@ Route::prefix('admin')->group(function () {
     Route::post('book/{id?}/edit','Admin\BookController@update')->middleware('auth:admin')->name('admin\book\update');
     Route::post('book/{id?}/delete', 'Admin\BookController@delete')->middleware('auth:admin')->name('admin\book\delete');
 });
+
+

@@ -9,6 +9,7 @@ use App\Models\BookAuthor;
 use App\Models\BorrowBook;
 use App\Models\Reaction;
 use App\Models\Comment;
+use App\Models\Borrow;
 class Book extends Model
 {
     protected $fillable = [
@@ -40,5 +41,17 @@ class Book extends Model
 
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+
+    public function borrows(){
+        return $this->belongsToMany(Borrow::class);
+    }
+
+    public function categories(){
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function authors(){
+        return $this->belongsToMany(Author::class);
     }
 }
