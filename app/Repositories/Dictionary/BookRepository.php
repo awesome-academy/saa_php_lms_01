@@ -98,14 +98,26 @@ class BookRepository
     public function searchBook($keywords=null, $author=null, $publisher=null){
         $keyword = "%{$keywords}%";
         $auth = "%{$author}%";
-        $books = $this->model->where([
-            ['title', 'LIKE', $keyword], 
-            ['publisher_id', $publisher]
+        if($publisher==null){
+            $books = $this->model::with('authors','publisher')->where([
+                ['title', 'LIKE', $keyword], 
             ])
-            ->where('bookAuthor.author', function($q) use ($auth){
-                return $q->where('name', 'LIKE', $auth);
-            })->get();
-        // dd($books);
+            ->whereHas('authors', function($query) use ($auth){
+                $query->where('name', 'LIKE', $auth);
+            })
+            ->paginate(15);
+        }
+        else{
+            $books = $this->model::with('authors','publisher')->where([
+                ['title', 'LIKE', $keyword], 
+                ['publisher_id', $publisher]
+            ])
+            ->whereHas('authors', function($query) use ($auth){
+                $query->where('name', 'LIKE', $auth);
+            })
+            ->paginate(15);
+        }
+
         return $books;
     }
 }
