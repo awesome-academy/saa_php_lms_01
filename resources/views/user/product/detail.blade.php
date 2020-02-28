@@ -14,46 +14,99 @@
                         
                         <div class="col-sm-12 col-md-4">
                             <h4>{{ $book->title }}</h4>
+                            <div class="avg-rating">
+                                @foreach($avgRating as $rate)
+                                    @if($rate->book_id == $book->id)
+                                        {{number_format($rate->rate, 1, '.', '')}}
+                                    @endif
+                                @endforeach
+                                <i class='fa fa-star fa-fw'></i>
+                            </div>   
                             <div style="margin-top:40px" class="form-group">
-                                <button class="like-button">
-                                    <i class="far fa-thumbs-up"></i>
-                                    <span>40</span>
-                                </button>
-                                <button class="unlike-button">
-                                    <i class="far fa-thumbs-down"></i>
-                                    <span>140</span>
-                                </button>
+                            <!-- <form> -->
+                                <input type="hidden" name="_token" id="ip_token" value="{{ csrf_token() }}">
+                                @if($reaction == 0)
+                                    <button style="background: #456ead;" class="like-button liked"  data-key="{{$book->id}}">
+                                        <i class="far fa-thumbs-up"></i>
+                                        <span id="total-like">    
+                                            {{$likes[0]->total}}
+                                        </span>
+                                    </button>
+                                    <!-- <span>({{$likes[0]->total}} lượt thích)</span> -->
+                                    <button style="background: #456ead;"  class="unlike-button"  data-key="{{$book->id}}">
+                                        <i class="far fa-thumbs-down"></i>
+                                        <span id="total-dislike">
+                                            {{$dislikes[0]->total}}
+                                        </span>
+                                    </button>
+                                @elseif($reaction == 1)
+                                        <button style="background: #456ead;" class="like-button"  data-key="{{$book->id}}">
+                                            <i class="far fa-thumbs-up"></i>
+                                            <span id="total-like">
+                                                {{$likes[0]->total}}
+                                            </span>
+                                        </button>
+                                        <!-- <span>({{$likes[0]->total}} lượt thích)</span> -->
+                                        <button style="background: #456ead;"  class="unlike-button liked"  data-key="{{$book->id}}">
+                                            <i class="far fa-thumbs-down"></i>
+                                            <span id="total-dislike">
+                                                {{$dislikes[0]->total}}
+                                            </span>
+                                        </button>
+                            
+                                @elseif($reaction == 2||$reaction==3)
+                                    <button style="background: #456ead;" class="like-button"  data-key="{{$book->id}}">
+                                            <i class="far fa-thumbs-up"></i>
+                                            <span id="total-like">
+                                                {{$likes[0]->total}}
+                                            </span>
+                                    </button>
+                                    <!-- <span>({{$likes[0]->total}} lượt thích)</span> -->
+                                    <button style="background: #456ead;"  class="unlike-button"  data-key="{{$book->id}}">
+                                            <i class="far fa-thumbs-down"></i>
+                                            <span id="total-dislike">
+                                                {{$dislikes[0]->total}}
+                                            </span>
+                                    </button>
+                                @endif
+                            <!-- <form> -->
                             </div>
                             <div class="about-book-information">
                                 <p>{{ __('Author') }}: 
                                     @foreach($book->authors as $author)
-                                        {{$author->name}}
+                                        <a href="{{route('user\book\search\author',$author->name)}}" class="category-title">
+                                            {{$author->name}}
+                                        </a>
                                     @endforeach
                                 </p>
                                 <p>{{__('Category')}}:
                                     @foreach($book->categories as $category)
-                                    <a class="category-title">
-                                        {{$category->name}}
-                                    </a>
+                                        <a href="{{route('user\book\search\category',$category->name)}}" class="category-title">
+                                            {{$category->name}}
+                                        </a>
                                     @endforeach
                                 </p>
                             </div>
-                            
+                            <input type="hidden" name="book_id" id="book_id_ip" value="{{$book->id}}">
+                            <?php 
+                                $rating = isset($rating[0]->rating) ? $rating[0]->rating : 0;
+                               
+                            ?>
                             <div class='rating-stars'>
                                 <ul id='stars'>
-                                    <li class='star' title='Poor' data-value='1'>
+                                    <li class="@if($rating >= 1) selected @endif star" title='Poor' data-value='1'>
                                         <i class='fa fa-star fa-fw'></i>
                                     </li>
-                                    <li class='star' title='Fair' data-value='2'>
+                                    <li class="@if($rating >= 2) selected @endif star" title='Fair' data-value='2'>
                                         <i class='fa fa-star fa-fw'></i>
                                     </li>
-                                    <li class='star' title='Good' data-value='3'>
+                                    <li class='@if($rating >= 3) selected @endif star' title='Good' data-value='3' >
                                         <i class='fa fa-star fa-fw'></i>
                                     </li>
-                                    <li class='star' title='Excellent' data-value='4'>
+                                    <li class='@if($rating >= 4) selected @endif star' title='Excellent' data-value='4'>
                                         <i class='fa fa-star fa-fw'></i>
                                     </li>
-                                    <li class='star' title='WOW!!!' data-value='5'>
+                                    <li class='@if($rating == 5) selected @endif star' title='WOW!!!' data-value='5'>
                                         <i class='fa fa-star fa-fw'></i>
                                     </li>
                                 </ul>
@@ -142,3 +195,12 @@
     </div>
 @endsection
 
+@section('javascript')
+    <script>
+        $(document).ready(function(){
+           
+
+            
+        })
+    </script>
+@endsection

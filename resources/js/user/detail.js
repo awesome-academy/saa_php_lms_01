@@ -25,7 +25,7 @@ jQuery(document).ready(function(){
     jQuery('#stars li').on('click', function(){
         var onStar = parseInt(jQuery(this).data('value'), 10); // The star currently selected
         var stars = jQuery(this).parent().children('li.star');
-        
+    
         for (i = 0; i < stars.length; i++) {
             jQuery(stars[i]).removeClass('selected');
         }
@@ -33,7 +33,22 @@ jQuery(document).ready(function(){
         for (i = 0; i < onStar; i++) {
             jQuery(stars[i]).addClass('selected');
         }
-                
+        
+        let parameter = {
+            rating: onStar,
+            book_id: jQuery('#book_id_ip').val(),
+            _token: jQuery('#ip_token').val(),
+        }
+        jQuery.ajax({
+            method:'POST',
+            url:'/book/rating',
+            data: JSON.stringify(parameter),
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function success(res) {
+              console.log(res);
+            }
+        })
     });
     
     

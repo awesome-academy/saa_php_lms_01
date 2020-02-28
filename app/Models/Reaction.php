@@ -8,6 +8,12 @@ use App\Models\User;
 class Reaction extends Model
 {
     //
+    protected $fillable = [
+        'user_id', 'book_id', 'emotion'
+    ];
+
+    public $timestamps = false; 
+
     public function book(){
         return $this->belongsTo(Book::class);
     }

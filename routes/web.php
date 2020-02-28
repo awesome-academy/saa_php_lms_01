@@ -21,9 +21,14 @@ Route::group([
     // Route::get('/detail', 'HomeController@show');
     Route::get('/profile', 'HomeController@profile');
     // Route::post('/login', 'LoginController@login')->name('user/login');
+    Route::post('/book/react','ReactionController@create')->name('user\book\react');
+    Route::post('/book/react/remove','ReactionController@remove')->name('user\book\inreact');
     Route::get('/search','BookController@searchBook')->name('user\book\search');
+    Route::get('/search/{name?}/author','BookController@searchByAuthor')->name('user\book\search\author');
+    Route::get('/search/{name?}/category','BookController@searchByCategory')->name('user\book\search\category');
     Route::get('book/{id?}/detail','BookController@detail')->name('user\book\detail');
     Route::post('book/comment','BookController@comment')->name('user\book\comment');
+    Route::post('book/rating','RatingController@rate')->name('user\book\rate');
 });
 Route::post('/user/logout', 'Auth\LoginController@logout')->name('user\logout');
 Auth::routes();

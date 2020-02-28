@@ -7211,8 +7211,7 @@ button.active.focus {
 button:hover,
 button:focus,
 button.focus {
-  color: #333;
-  text-decoration: none;
+  text-decoration: none; 
 }
 button:active,
 button.active {
