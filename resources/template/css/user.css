@@ -111,3 +111,11 @@ nav.navigation.pagination.text-center {
   a.category-title:hover {
     text-decoration: none;
   }
+  .liked{
+    color: #1702ca;
+  }
+  .avg-rating{
+    margin-top: 16px;
+    color: #FF912C;
+    font-weight: bold;
+  }

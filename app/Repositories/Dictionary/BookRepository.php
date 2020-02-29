@@ -92,7 +92,7 @@ class BookRepository
     }
 
     public function getAllWithInfo(){
-        return $this->model->with('publisher','bookAuthor','bookAuthor.author')->paginate(15);
+        return $this->model->with('publisher','bookAuthor','bookAuthor.author')->orderBy('created_at','desc')->paginate(15);
     }
 
     public function searchBook($keywords=null, $author=null, $publisher=null){
@@ -117,6 +117,24 @@ class BookRepository
             })
             ->paginate(15);
         }
+
+        return $books;
+    }
+
+    public function searchByCategory($name=null){
+        $books = $this->model->with('authors', 'publisher', 'categories')
+                ->whereHas('categories', function($query) use ($name){
+                    $query->where('name','=', $name);                    
+                })->paginate(15);
+
+        return $books;
+    }
+
+    public function searchByAuthor($name){
+        $books = $this->model->with('authors', 'publisher', 'categories')
+                ->whereHas('authors', function($query) use ($name){
+                    $query->where('name','=', $name);                    
+                })->paginate(15);
 
         return $books;
     }

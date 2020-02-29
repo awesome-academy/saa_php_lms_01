@@ -8,6 +8,10 @@ use App\Models\Book;
 class Rating extends Model
 {
     //
+    protected $fillable = [
+        'user_id', 'book_id', 'rating'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

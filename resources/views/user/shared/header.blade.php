@@ -19,16 +19,11 @@
                         <div class="header-topbar hidden-sm hidden-xs">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="topbar-info">
-                                        <a href="tel:+61-3-8376-6284"><i class="fa fa-phone"></i>+61-3-8376-6284</a>
-                                        <span>/</span>
-                                        <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
-                                    </div>
                                 </div>
                                 <div class="col-sm-6">
                                     @if(Auth::guard('web')->check())
                                         <div class="topbar-links">
-                                            <a id="user-name-home" href="#"><i class="fa fa-lock"></i>{{Auth::guard('admin')->user()->name}}</a>
+                                            <a id="user-name-home" href="#"><i class="fa fa-lock"></i>{{Auth::guard('web')->user()->name}}</a>
                                             <ul class="setting-user">
                                                 <li class="item-setting">
                                                     <a href="{{ route('user\logout') }}"
@@ -56,7 +51,7 @@
                         <div class="navbar-collapse hidden-sm hidden-xs">
                             <ul class="nav navbar-nav menu-home">
                                 <li class=" active">
-                                    <a>Home</a>
+                                    <a href="/">Home</a>
                             
                                 </li>
                                 <li>

@@ -66,34 +66,7 @@
                                                 <div class="book-list-icon blue-icon"></div>
                                                 <div class="single-book-box">
                                                     <div class="post-detail">
-                                                        <div class="optional-links">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add TO CART">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like">
-                                                                        <i class="fa fa-heart"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search">
-                                                                        <i class="fa fa-search"></i>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print">
-                                                                        <i class="fa fa-print"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
+                                                        
                                                         <header class="entry-header">
                                                             <h3 class="entry-title"><a href="books-media-detail-v1.html">{{$book->title}}</a></h3>
                                                             <ul>
@@ -137,7 +110,7 @@
                                                     <div class="widget_categories" data-content>
                                                         <ul>
                                                             @foreach($categories as $category)
-                                                                <li><a style="cursor:pointer">{{$category->name}}</a></li>
+                                                                <li><a href="{{route('user\book\search\category',$category->name)}}">{{$category->name}}</a></li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -147,7 +120,7 @@
                                                     <div class="widget_categories" data-content>
                                                         <ul>
                                                             @foreach($authors as $author)
-                                                                <li value={{$author->id}}><a style="cursor:pointer">{{$author->name}}</a></li>
+                                                            <li><a href="{{route('user\book\search\author',$author->name)}}">{{$author->name}}</a></li>
                                                             @endforeach
                                                         </ul>
                                                     </div>

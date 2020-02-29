@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Follow;
+use App\Models\Reaction;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -43,5 +44,9 @@ class User extends Authenticatable
 
     public function follows(){
         return $this->hasMany(Follow::class,'follower', 'following');
+    }
+
+    public function reactions(){
+        return $this->hasMany(Reaction::class);
     }
 }
