@@ -163,8 +163,8 @@ function () {
         _token: jQuery('#ip_token').val(),
         following_id: jQuery('#input-us-id').val()
       };
-      jQuery('.icon-checked').toggleClass('appear')
-      if (jQuery('.icon-checked').hasClass('appear')) {
+
+      if (jQuery('.button-follow span').hasClass('disappear')) {
         jQuery.ajax({
           method: 'POST',
           url: '/user/follow',
@@ -172,9 +172,9 @@ function () {
           contentType: "application/json;charset=utf-8",
           dataType: "json",
           success: function success(res) {
-            console.log(res,1);
-            // jQuery('.button-follow').addClass('followed');
-            jQuery('.button-follow i').show();
+            console.log(res);
+            jQuery('.button-follow span').removeClass('disappear');
+            jQuery('.button-follow span').addClass('appear');
           }
         });
       } else {
@@ -186,7 +186,8 @@ function () {
           dataType: "json",
           success: function success(res) {
             console.log(res);
-            jQuery('.button-follow i').hide();
+            jQuery('.button-follow span').removeClass('appear');
+            jQuery('.button-follow span').addClass('disappear');
           }
         });
       }

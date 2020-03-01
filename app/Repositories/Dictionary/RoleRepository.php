@@ -56,7 +56,7 @@ class RoleRepository implements IRoleRepository
     public function update(array $data, $id){
         $result = $this->model->find($id);
         if ($result) {
-            $result->update($data);
+            $result->permissions()->sync($data);
             return $result;
         }
 

@@ -5,7 +5,7 @@
         <div class="title-form">
             <h4>{{ __('Create Role') }}</h4>
         </div>
-        <form method="POST" action="{{ route('admin\role\store') }}">
+        <form method="POST" action="{{ route('admin\role\update', $role->id) }}">
             @foreach ($errors->all() as $error)
                 <p class="alert alert-danger">{{ $error }}</p>
             @endforeach
@@ -15,10 +15,11 @@
                 </div>
             @endif
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="role_id" value="{{ $role->id }}">
             <div class="form-group">
                 <label for="name" class="col-lg-2 control-label">{{ __('Name') }}</label>
                 <div class="col-lg-6">
-                    <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                    <input type="text" value={{$role->name}} class="form-control" id="name" placeholder="Name" name="name">
                 </div>
                 @error('name')
                     <div class="col-lg-6">
@@ -31,9 +32,10 @@
             <div class="form-group">
                 <label for="permissions" class="col-lg-2 control-label">{{ __('Permissions') }}</label>
                 <div class="col-lg-6">
-                    <select multiple="multiple" name="permissions[]" id="permissions">
-                        @foreach ($permissions as $permission)
-                            <option value={{$permission->id}}>{{$permission->name}}</option>
+                    <select class="js-example-basic-multiple" multiple="multiple" name="permissions[]" id="permissions">
+                        @foreach($permissions as $permission)
+                                <option  value={{$permission->id}}>{{$permission->name}}</option>
+                           
                         @endforeach
                     </select>
                 </div>
@@ -47,4 +49,12 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('javascript')
+    <script>
+        $(document).ready(function(){
+            $('.js-example-basic-multiple').select2();
+        })
+    </script>
 @endsection

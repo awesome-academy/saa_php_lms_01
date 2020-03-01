@@ -12,6 +12,8 @@ class RolePermission extends Model
         'role_id', 'permission_id'
     ];
     
+    protected $timestamps = false;
+
     public function role(){
         return $this->belongsTo(Role::class);
     }

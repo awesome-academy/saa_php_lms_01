@@ -40,12 +40,13 @@ class RoleController extends Controller
     }
 
     public function edit($id){
-        $user = $this->repository->show($id);
-        return view('admin/role/edit', compact('role'));
+        $role = $this->repository->show($id);
+        $permissions = $this->permission->all();
+        return view('admin/role/edit', compact('role', 'permissions'));
     }
 
-    public function update(Request $request, $id){
-        $result = $this->repository->update($request->all(), $id);
+    public function update(Request $request){
+        $result = $this->repository->update($request->all(), $request->role_id);
         if($result){
             return redirect()->route('admin\role\index');
         }

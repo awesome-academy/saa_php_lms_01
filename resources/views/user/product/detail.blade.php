@@ -5,7 +5,7 @@
 <div class="blog-detail-main">
         <div class="container">
             <div class="row">
-                <div class="blog-page">
+                <div class="blog-page" style="width:100%">
                     <div class="row header-book">
                         
                         <div class="col-sm-12 col-md-4">

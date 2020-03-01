@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label for="description" class="col-lg-2 control-label">{{ __('Category') }}</label>
                         <div class="col-lg-6">
-                            <select multiple="multiple" name="categories[]" id="categories-select">
+                            <select class="select-multi-cate" multiple="multiple" name="categories[]" id="categories-select">
                                 @foreach($categories as $category)
                                     <option value={{$category->id}}>{{$category->name}}</option>
                                 @endforeach
@@ -104,6 +104,7 @@
     <script>
         $(document).ready(function(){
             console.log(1);
+            $('#authors-select').select2();
             function readURL(input) {
                 if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -119,6 +120,8 @@
         $("#thumbnail-ip").change(function() {
             readURL(this);
         });
+
+        $('.select-multi-cate').select2();
     })
     </script>
 @endsection

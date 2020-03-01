@@ -48,3 +48,11 @@
         </form>
     </div>
 @endsection
+
+@section('javascript')
+    <script>
+        $(document).ready(function(){
+            $('#permissions').select2();
+        })
+    </script>
+@endsection
