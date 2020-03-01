@@ -4,6 +4,7 @@
     "/css/app.css": "/css/app.css",
     "/js/user/detail.js": "/js/user/detail.js",
     "/js/user/home.js": "/js/user/home.js",
+    "/js/user/profile.js": "/js/user/profile.js",
     "/css/style.css": "/css/style.css",
     "/css/admin.css": "/css/admin.css"
 }

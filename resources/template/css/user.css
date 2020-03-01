@@ -6,6 +6,7 @@
 }
 .profile{
     padding: 20px;
+    margin-bottom: 40px;
 }
 .profile .user-info{
     font-size: 20px;
@@ -119,3 +120,142 @@ nav.navigation.pagination.text-center {
     color: #FF912C;
     font-weight: bold;
   }
+  .profile{
+    font-family: 'Muli'!important;
+  }
+  .profile .container{
+      padding: 0 40px;
+  }
+  .header-profile{
+    position: relative;
+    top: -56px;
+    border-bottom: 1px solid #efefef;
+  }
+  .header-profile .info-user{
+    padding-top: 24px;
+  }
+  .user-avatar img{
+    width: 150px;
+    border-radius: 300px;
+    height: 150px;
+  }
+  .user-avatar{
+      text-align: center;
+  }
+  .user-diary ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.profile .user-info {
+    font-size: 20px;
+    margin: 20px 0;
+    display: flex!important;
+}
+.user-diary ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.user-diary ul li {
+    float: left;
+    border-radius: 8px;
+    height: 40px;
+    margin-right: 8px;
+    width: 140px;
+    line-height: 37px;
+    cursor: pointer;
+}
+.user-diary li a.active {
+    border-bottom: 2px solid #0282c3;
+}
+.user-diary li a :hover{
+    color: #FF7236;
+}
+.user-info button.button-follow {
+    background: #fff;
+    color: #026b97;
+    border: 1px solid #026b97;
+    border-radius: 3px;
+    font-size: 15px;
+    text-transform: inherit;
+    margin-left: 40px;
+    height: 34px;
+    line-height: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 16px;
+}
+.user-info h2{
+    font-size: 28px;
+    font-weight: 300;
+    color: #262626!important;
+    text-transform: inherit;
+    font-family:Muli!important;
+}
+
+.user-info h2, p, span{
+    font-family:Muli!important;
+}
+.background-book{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 15px;
+    background: #000;
+    opacity: 0.3;
+    color: #fff!important;
+    text-align: center;
+    display: none;
+}
+.emotion-of-book{
+    margin-top: 60px;
+}
+.emotion-of-book span{
+    padding-right: 20px;
+}
+.one-book:hover{
+    cursor: pointer;
+}
+.one-book:hover > .background-book{
+    display: block;
+}
+.row.followers-info {
+    margin: 8px;
+    border: 1px solid #ccc;
+}
+p.user-name{
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+p.description-cap a {
+    font-size: 12px;
+}
+.row.followers-info p.user-name a {
+    font-weight: 600;
+    color: #026b97;
+}
+.row.followers-info p.description{
+    font-weight: 300;
+    font-size: 13px;
+}
+.row.followers-info p.address{
+    font-size: 13px;
+}
+.row.followers-info img{
+    width: 80px;
+    height: 80px;
+}
+.emotion-of-book {
+    margin-top: 130px;
+    font-size: 24px;
+}
+
+.disappear{
+    display: none;
+}
+.appear{
+    display: block;
+}

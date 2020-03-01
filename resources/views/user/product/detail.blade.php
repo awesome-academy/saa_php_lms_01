@@ -147,7 +147,7 @@
                                             <div class="comment-author vcard">
                                                 <img class="avatar avatar-32 photo avatar-default" src="" alt="Comment Author">
                                                 <b class="fn">
-                                                    <a class="url" rel="external nofollow" href="#">{{$comment->user_id?$comment->user()->first()->name:'Anonymous'}}</a>
+                                                    <a href="{{route('user\profile',$comment->user_id)}}"  class="url" rel="external nofollow" >{{$comment->user_id?$comment->user()->first()->name:'Anonymous'}}</a>
                                                 </b>					
                                             </div>
                                             <footer class="comment-meta">

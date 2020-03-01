@@ -63,5 +63,10 @@
     "AboutUs":"It is a long established fact that a reader will be distracted by the readable content of a page when looking.",
     "Comment":"Bình luận",
     "Write your comment":"Nhập bình luận",
-    "Like":"Thích"
+    "Like":"Thích",
+    "Follow":"Theo dõi",
+    "followings":"Đang theo dõi",
+    "followers":"Người theo dõi",
+    "likes":"Thích",
+    "Followed":"Đang theo dõi"
 }

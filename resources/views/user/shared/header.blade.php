@@ -23,7 +23,7 @@
                                 <div class="col-sm-6">
                                     @if(Auth::guard('web')->check())
                                         <div class="topbar-links">
-                                            <a id="user-name-home" href="#"><i class="fa fa-lock"></i>{{Auth::guard('web')->user()->name}}</a>
+                                            <a id="user-name-home" style="color:#fff"><i class="fa fa-lock"></i>{{Auth::guard('web')->user()->name}}</a>
                                             <ul class="setting-user">
                                                 <li class="item-setting">
                                                     <a href="{{ route('user\logout') }}"
@@ -35,7 +35,7 @@
                                                     </form>
                                                 </li>
                                                 <li class="item-setting">
-                                                    <a>{{ __('Profile') }}</a>
+                                                    <a href="{{route('user\profile',Auth::id())}}">{{ __('Profile') }}</a>
                                                 </li>
                                             </ul>
                                         </div>

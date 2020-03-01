@@ -42,8 +42,12 @@ class User extends Authenticatable
     //     return $this->belongsTo('App\Models\Role');
     // }
 
-    public function follows(){
-        return $this->hasMany(Follow::class,'follower', 'following');
+    public function followers(){
+        return $this->hasMany(Follow::class,'following_id');
+    }
+
+    public function followings(){
+        return $this->hasMany(Follow::class,'follower_id');
     }
 
     public function reactions(){

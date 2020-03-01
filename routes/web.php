@@ -19,7 +19,7 @@ Route::group([
     // Route::post('/login', 'LoginController@login');
     Route::get('/', 'HomeController@index');
     // Route::get('/detail', 'HomeController@show');
-    Route::get('/profile', 'HomeController@profile');
+    Route::get('/profile/{id?}/user', 'ProfileController@index')->name('user\profile');
     // Route::post('/login', 'LoginController@login')->name('user/login');
     Route::post('/book/react','ReactionController@create')->name('user\book\react');
     Route::post('/book/react/remove','ReactionController@remove')->name('user\book\inreact');
@@ -29,6 +29,9 @@ Route::group([
     Route::get('book/{id?}/detail','BookController@detail')->name('user\book\detail');
     Route::post('book/comment','BookController@comment')->name('user\book\comment');
     Route::post('book/rating','RatingController@rate')->name('user\book\rate');
+
+    Route::post('/user/follow','ProfileController@follow')->name('user\profile\follow');
+    Route::post('/user/unfollow','ProfileController@unfollow')->name('user\profile\unfollow');
 });
 Route::post('/user/logout', 'Auth\LoginController@logout')->name('user\logout');
 Auth::routes();

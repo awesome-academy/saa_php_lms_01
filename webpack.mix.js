@@ -22,3 +22,4 @@ mix.copyDirectory('resources/template/img', 'public/img');
 mix.js('resources/js/admin/base.js','public/js/admin/base.js')
 mix.js('resources/js/user/home.js','public/js/user/home.js')
 mix.js('resources/js/user/detail.js','public/js/user/detail.js')
+mix.js('resources/js/user/profile.js','public/js/user/profile.js')

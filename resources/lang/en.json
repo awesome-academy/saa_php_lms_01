@@ -60,5 +60,10 @@
     "Previous":"Previous",
     "AboutUs":"It is a long established fact that a reader will be distracted by the readable content of a page when looking.",
     "Comment":"Comment",
-    "Write your comment":"Write your comment"
+    "Write your comment":"Write your comment",
+    "Follow":"Follow",
+    "followings":"followings",
+    "followers":"followers",
+    "likes":"likes",
+    "Followed":"Followed"
 }
